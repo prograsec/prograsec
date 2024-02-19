@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "@/app/globals.css";
 import { Providers } from "@/app/providers";
+import ThemeSwitcher from "@/app/components/theme-switcher";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <ThemeSwitcher />
+        </Providers>
       </body>
     </html>
   );
